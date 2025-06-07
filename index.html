@@ -80,8 +80,17 @@
         <ul id="historyList"></ul>
       </div>
     </div>
-
   </div>
+
+  <div class="periodic-table-panel card hidden" id="ptPanel">
+    <div class="pt-header" onclick="togglePT()">
+      <span>🧪 Periodic Table</span>
+      <button id="ptToggleBtn">Show</button>
+    </div>
+    <div class="pt-grid" id="ptGrid">
+    </div>
+  </div>
+
 
   <!-- Credits Modal -->
   <div id="creditsModal" class="modal" style="display: none;">
@@ -90,7 +99,7 @@
       <p>Made by <strong>Arnav Podichetty</strong>.</p>
       <p>Special thanks to <strong>Riku</strong> for the idea.</p>
       <p>
-        Molecular Structure Images by
+        Molecular Structures/Names by
         <a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubChem</a>
       </p>
       <p>
@@ -102,5 +111,6 @@
 
   <!-- Script -->
   <script src="script.js"></script>
+  <script src="periodic-table.js"></script>
 </body>
 </html>
