@@ -247,6 +247,8 @@ function renderHistory() {
     li.appendChild(pinBtn);
     list.appendChild(li);
   });
+
+  updateAutocomplete();
 }
 
 // Toggle pin on a history item
@@ -278,12 +280,30 @@ function normalizeInput(str) {
     .replace(/\s+/g, '');
 }
 
+// Shows the credits
 function showCredits() {
   document.getElementById("creditsModal").style.display = "flex";
 }
 
+// Hides the credits
 function closeCredits() {
   document.getElementById("creditsModal").style.display = "none";
 }
 
-renderHistory();
+// Populates the autocomplete suggestion list with unique formulas from history
+function updateAutocomplete() {
+  const history = JSON.parse(localStorage.getItem("molarHistory") || "[]");
+  const datalist = $("suggestions");
+
+  datalist.innerHTML = "";
+
+  const uniqueInputs = [...new Set(history.map(entry => entry.input))];
+
+  uniqueInputs.forEach(input => {
+    const option = document.createElement("option");
+    option.value = input;
+    datalist.appendChild(option);
+  });
+}
+
+renderHistory(); // Initial render of history and autocomplete on page load
