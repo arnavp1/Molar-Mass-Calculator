@@ -10,6 +10,7 @@
 
   <!-- Dark Mode Toggle -->
   <button id="themeToggle" class="sec" onclick="toggleTheme()">🌙 Dark Mode</button>
+  <button id="creditsBtn" class="sec" onclick="showCredits()">ℹ️ Credits</button>
 
   <!-- Main Calculator Card -->
   <div class="card">
@@ -17,8 +18,7 @@
 
     <input
       id="inp"
-      placeholder="e.g. Al2(SO4)3 · 18H2O"
-      autocomplete="off"
+      placeholder="e.g. Al2(SO4)3 + 18H2O"
       oninput="go()"
     />
 
@@ -31,7 +31,7 @@
     </div>
 
     <div id="imgWrap">
-      <img id="molImg" alt="Structure preview">
+      <img id="molImg" alt="Structure preview" />
     </div>
   </div>
 
@@ -42,6 +42,23 @@
       <button id="clearHistory" class="sec small" onclick="clearHistory()">🗑️ Clear</button>
     </h2>
     <ul id="historyList"></ul>
+  </div>
+
+  <!-- Credits Modal -->
+  <div id="creditsModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2>Credits</h2>
+      <p>Made by <strong>Arnav Podichetty</strong>.</p>
+      <p>Special thanks to <strong>Riku</strong> for the idea.</p>
+      <p>
+        Molecular Structure Images by
+        <a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubChem</a>
+      </p>
+      <p>
+        <a href="https://github.com/arnavp1/Molar-Mass-Calculator" target="_blank">GitHub Repository</a>
+      </p>
+      <button onclick="closeCredits()">Close</button>
+    </div>
   </div>
 
   <!-- Script -->

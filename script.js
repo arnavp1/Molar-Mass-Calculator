@@ -277,3 +277,11 @@ function normalizeInput(str) {
     .replace(/^\[(.*)\]$/, "$1")
     .replace(/\s+/g, '');
 }
+
+function showCredits() {
+  document.getElementById("creditsModal").style.display = "flex";
+}
+
+function closeCredits() {
+  document.getElementById("creditsModal").style.display = "none";
+}
