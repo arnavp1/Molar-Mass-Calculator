@@ -8,7 +8,8 @@
   font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* Layout */
+/* ---------------- Layout ---------------- */
+
 body {
   margin: 0;
   padding: 1rem;
@@ -20,7 +21,8 @@ body {
   background: var(--bg);
 }
 
-/* Card */
+/* ---------------- Card ---------------- */
+
 .card {
   width: 100%;
   max-width: 420px;
@@ -33,14 +35,16 @@ body {
   margin-top: 60px;
 }
 
-/* Header */
+/* ---------------- Header ---------------- */
+
 h1 {
   margin: 0 0 16px;
   font-size: 1.6rem;
   font-weight: 600;
 }
 
-/* Input */
+/* ---------------- Input ---------------- */
+
 input {
   width: 100%;
   padding: 14px;
@@ -55,7 +59,8 @@ input:focus {
   outline: none;
 }
 
-/* Output */
+/* ---------------- Output ---------------- */
+
 .out {
   min-height: 32px;
   margin: 20px 0;
@@ -67,12 +72,14 @@ input:focus {
   color: #dc2626;
 }
 
-/* Button Group */
+/* ---------------- Button Group ---------------- */
+
 #btnRow {
   margin-bottom: 10px;
 }
 
-/* Buttons */
+/* ---------------- Buttons ---------------- */
+
 button {
   all: unset;
   display: inline-block;
@@ -98,7 +105,8 @@ button.small {
   vertical-align: middle;
 }
 
-/* Image */
+/* ---------------- Image ---------------- */
+
 #imgWrap {
   display: flex;
   justify-content: center;
@@ -112,7 +120,8 @@ button.small {
   display: none;
 }
 
-/* Dark Mode Toggle Button */
+/* ---------------- Toggle Buttons ---------------- */
+
 #themeToggle {
   position: fixed;
   top: 16px;
@@ -126,7 +135,21 @@ button.small {
   transition: background 0.3s ease;
 }
 
-/* Hover Effects */
+#creditsBtn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  background: #e5e7eb;
+  color: #111;
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+
+/* ---------------- Hover Effects ---------------- */
+
 @media (hover: hover) {
   button:hover,
   #themeToggle:hover {
@@ -134,7 +157,8 @@ button.small {
   }
 }
 
-/* Dark Mode */
+/* ---------------- Dark Mode ---------------- */
+
 body.dark {
   background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
   color: #f1f1f1;
@@ -169,12 +193,14 @@ body.dark button.sec {
   color: #ddd;
 }
 
-body.dark #themeToggle {
+body.dark #themeToggle,
+body.dark #creditsBtn {
   background: #444;
   color: #ddd;
 }
 
-/* History */
+/* ---------------- History ---------------- */
+
 .history {
   width: 100%;
   max-width: 420px;
@@ -236,23 +262,7 @@ body.dark .history li button.pin {
   color: #93c5fd;
 }
 
-#creditsBtn {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  padding: 8px 14px;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  background: #e5e7eb;
-  color: #111;
-  z-index: 999;
-  transition: background 0.3s ease;
-}
-
-body.dark #creditsBtn {
-  background: #444;
-  color: #ddd;
-}
+/* ---------------- Modal ---------------- */
 
 .modal {
   position: fixed;
@@ -278,4 +288,15 @@ body.dark #creditsBtn {
 body.dark .modal-content {
   background: #2c2c2c;
   color: #f1f1f1;
+}
+
+/* ---------------- Link Styles ---------------- */
+
+body.dark a {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+body.dark a:hover {
+  color: #bfdbfe;
 }
