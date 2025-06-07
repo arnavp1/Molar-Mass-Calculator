@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Molar Mass Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Dark Mode Toggle -->
+  <button id="themeToggle" class="sec" onclick="toggleTheme()">🌙 Dark Mode</button>
+
+  <!-- Main Calculator Card -->
+  <div class="card">
+    <h1>Molar Mass Calculator</h1>
+
+    <input
+      id="inp"
+      placeholder="e.g. Al2(SO4)3 · 18H2O"
+      autocomplete="off"
+      oninput="go()"
+    />
+
+    <div id="out" class="out"></div>
+
+    <div id="btnRow" style="display: none;">
+      <button onclick="copy()">Copy</button>
+      <button class="sec" onclick="csv()">Download CSV</button>
+      <button class="sec" onclick="share()">Share</button>
+    </div>
+
+    <div id="imgWrap">
+      <img id="molImg" alt="Structure preview">
+    </div>
+  </div>
+
+  <!-- History Section -->
+  <div class="history">
+    <h2>
+      History
+      <button id="clearHistory" class="sec small" onclick="clearHistory()">🗑️ Clear</button>
+    </h2>
+    <ul id="historyList"></ul>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

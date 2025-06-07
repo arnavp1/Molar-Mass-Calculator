@@ -1,0 +1,237 @@
+:root {
+  --accent: #3b82f6;
+  --bg: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Layout */
+body {
+  margin: 0;
+  padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--bg);
+}
+
+/* Card */
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  border-radius: 14px;
+  padding: 32px 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: 0.3s;
+  margin-top: 60px;
+}
+
+/* Header */
+h1 {
+  margin: 0 0 16px;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* Input */
+input {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.05rem;
+  border: 2px solid #d1d5db;
+  border-radius: 10px;
+  transition: border 0.2s;
+}
+
+input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+/* Output */
+.out {
+  min-height: 32px;
+  margin: 20px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.out.error {
+  color: #dc2626;
+}
+
+/* Button Group */
+#btnRow {
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+  all: unset;
+  display: inline-block;
+  cursor: pointer;
+  margin: 6px 4px;
+  padding: 10px 18px 11px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+}
+
+button.sec {
+  background: #e5e7eb;
+  color: #111;
+}
+
+button.small {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+/* Image */
+#imgWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#molImg {
+  max-height: 280px;
+  max-width: 100%;
+  width: auto;
+  display: none;
+}
+
+/* Dark Mode Toggle Button */
+#themeToggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  background: #e5e7eb;
+  color: #111;
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+
+/* Hover Effects */
+@media (hover: hover) {
+  button:hover,
+  #themeToggle:hover {
+    opacity: 0.9;
+  }
+}
+
+/* Dark Mode */
+body.dark {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+  color: #f1f1f1;
+}
+
+body.dark .card {
+  background: #2c2c2c;
+  color: #f1f1f1;
+}
+
+body.dark input {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  border-color: #555;
+}
+
+body.dark input:focus {
+  border-color: var(--accent);
+}
+
+body.dark .out.error {
+  color: #f87171;
+}
+
+body.dark button {
+  background: #4f46e5;
+  color: #fff;
+}
+
+body.dark button.sec {
+  background: #444;
+  color: #ddd;
+}
+
+body.dark #themeToggle {
+  background: #444;
+  color: #ddd;
+}
+
+/* History */
+.history {
+  width: 100%;
+  max-width: 420px;
+  margin-top: 40px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-size: 0.95rem;
+}
+
+.history h2 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.history li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.history li:hover {
+  color: var(--accent);
+}
+
+.history li span {
+  flex-grow: 1;
+}
+
+.history li button.pin {
+  font-size: 0.8rem;
+  background: transparent;
+  color: var(--accent);
+  margin-left: 8px;
+}
+
+body.dark .history {
+  background: #2c2c2c;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+body.dark .history li {
+  border-color: #444;
+}
+
+body.dark .history li button.pin {
+  color: #93c5fd;
+}
