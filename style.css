@@ -355,3 +355,24 @@ body.dark a:hover {
     align-items: center;
   }
 }
+
+/* ---------------- Molecule Name Lookup ---------------- */
+.name-lookup {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.name-lookup h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.out.small-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #444;
+}
+
+body.dark .out.small-text {
+  color: #ccc;
+}

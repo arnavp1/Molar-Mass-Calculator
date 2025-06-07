@@ -37,6 +37,7 @@ async function go() {
     out.classList.remove('error');
     btns.style.display = 'block';
     fetchImage(f);
+    fetchName(f);
   } catch (e) {
     out.textContent = e.message;
     out.classList.add('error');
@@ -334,5 +335,47 @@ function updateConverter() {
 document.querySelectorAll('input[name="mode"]').forEach(el =>
   el.addEventListener("change", updateConverter)
 );
+
+// Gets the IUPAC and common name of the molecule
+async function fetchName(formula) {
+  const nameEl = $("molName");
+  nameEl.textContent = "Looking up name...";
+
+  try {
+    const cidApi = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/${encodeURIComponent(formula)}/cids/JSON`;
+    const cidData = await fetch(cidApi).then(r => r.json());
+    const cid = cidData.IdentifierList?.CID?.[0];
+    if (!cid) {
+      nameEl.textContent = "No name found.";
+      return;
+    }
+
+    const synonymApi = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/synonyms/JSON`;
+    const synonymData = await fetch(synonymApi).then(r => r.json());
+    const synonyms = synonymData.InformationList?.Information?.[0]?.Synonym;
+    const commonName = synonyms?.[0]
+      ? synonyms[0].charAt(0).toUpperCase() + synonyms[0].slice(1).toLowerCase()
+      : null;
+
+    const iupacApi = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/property/IUPACName/JSON`;
+    const iupacData = await fetch(iupacApi).then(r => r.json());
+    const rawIupac = iupacData.PropertyTable?.Properties?.[0]?.IUPACName;
+
+    const iupacName = rawIupac
+      ? rawIupac.charAt(0).toUpperCase() + rawIupac.slice(1).toLowerCase()
+      : null;
+
+    if (commonName || iupacName) {
+      nameEl.innerHTML = `
+        ${commonName ? `<strong>Common:</strong> ${commonName}<br>` : ""}
+        ${iupacName ? `<strong>IUPAC:</strong> ${iupacName}` : ""}
+      `;
+    } else {
+      nameEl.textContent = "Name not available.";
+    }
+  } catch {
+    nameEl.textContent = "Error retrieving name.";
+  }
+}
 
 renderHistory(); // Initial render of history and autocomplete on page load
