@@ -306,4 +306,33 @@ function updateAutocomplete() {
   });
 }
 
+// Computes between moles and mass 
+function updateConverter() {
+  const molarMass = parseFloat($("mmInput").value);
+  const value = parseFloat($("valueInput").value);
+  const mode = document.querySelector('input[name="mode"]:checked').value;
+  const output = $("convResult");
+
+  if (!molarMass || !value) {
+    output.textContent = "";
+    return;
+  }
+
+  let result = 0;
+  if (mode === "toMass") {
+    result = value * molarMass;
+    output.textContent = `${result.toFixed(3)} g`;
+  } else {
+    result = value / molarMass;
+    output.textContent = `${result.toFixed(3)} mol`;
+  }
+}
+
+["mmInput", "valueInput"].forEach(id =>
+  $(id).addEventListener("input", updateConverter)
+);
+document.querySelectorAll('input[name="mode"]').forEach(el =>
+  el.addEventListener("change", updateConverter)
+);
+
 renderHistory(); // Initial render of history and autocomplete on page load

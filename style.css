@@ -35,12 +35,36 @@ body {
   margin-top: 60px;
 }
 
+.card.converter label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.card.converter input[type="number"] {
+  margin-top: 10px;
+}
+
 /* ---------------- Header ---------------- */
 
 h1 {
   margin: 0 0 16px;
   font-size: 1.6rem;
   font-weight: 600;
+}
+
+/* ---------------- Section Header ---------------- */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* ---------------- Section Titles ---------------- */
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0 0 16px;
 }
 
 /* ---------------- Input ---------------- */
@@ -204,12 +228,13 @@ body.dark #creditsBtn {
 .history {
   width: 100%;
   max-width: 420px;
-  margin-top: 40px;
+  margin-top: 60px;
   padding: 20px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   font-size: 0.95rem;
+  transition: 0.3s;
 }
 
 .history h2 {
@@ -251,7 +276,7 @@ body.dark #creditsBtn {
 body.dark .history {
   background: #2c2c2c;
   color: #f1f1f1;
-  border: 1px solid #444;
+  border: none;
 }
 
 body.dark .history li {
@@ -299,4 +324,34 @@ body.dark a {
 
 body.dark a:hover {
   color: #bfdbfe;
+}
+
+/* ---------------- Layout Panels ---------------- */
+
+.main-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1300px;
+  margin-top: 60px;
+}
+
+.left-panel,
+.center-panel,
+.right-panel {
+  flex: 1;
+  min-width: 320px;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1000px) {
+  .main-layout {
+    flex-direction: column;
+    align-items: center;
+  }
 }
