@@ -285,3 +285,5 @@ function showCredits() {
 function closeCredits() {
   document.getElementById("creditsModal").style.display = "none";
 }
+
+renderHistory();
