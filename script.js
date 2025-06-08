@@ -309,27 +309,39 @@ function updateAutocomplete() {
 
 // Computes between moles and mass 
 function updateConverter() {
-  const molarMass = parseFloat($("mmInput").value);
+  const formula = $("mmFormulaInput").value.trim();
   const value = parseFloat($("valueInput").value);
   const mode = document.querySelector('input[name="mode"]:checked').value;
   const output = $("convResult");
 
-  if (!molarMass || !value) {
+  if (!formula || !value) {
     output.textContent = "";
+    return;
+  }
+
+  let molarMass = null;
+  try {
+    molarMass = parseCompound(formula);
+  } catch {
+    output.textContent = "Invalid formula!";
+    return;
+  }
+  if (!molarMass || isNaN(molarMass)) {
+    output.textContent = "Invalid formula!";
     return;
   }
 
   let result = 0;
   if (mode === "toMass") {
     result = value * molarMass;
-    output.textContent = `${result.toFixed(3)} g`;
+    output.textContent = `${result.toFixed(3)} g (${molarMass.toFixed(3)} g/mol)`;
   } else {
     result = value / molarMass;
-    output.textContent = `${result.toFixed(3)} mol`;
+    output.textContent = `${result.toFixed(3)} mol (${molarMass.toFixed(3)} g/mol)`;
   }
 }
 
-["mmInput", "valueInput"].forEach(id =>
+["mmFormulaInput", "valueInput"].forEach(id =>
   $(id).addEventListener("input", updateConverter)
 );
 document.querySelectorAll('input[name="mode"]').forEach(el =>
