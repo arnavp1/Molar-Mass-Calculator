@@ -2,8 +2,6 @@
 
 A sleek, interactive web app to calculate molar mass, convert between moles and mass, look up molecular names, and explore the periodic table — all in one place!
 
-![screenshot](preview.png) <!-- Optional: replace with an actual screenshot filename -->
-
 ## 🔬 Features
 
 - 💡 **Molar Mass Calculator**  
