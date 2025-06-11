@@ -27,6 +27,16 @@ A sleek, interactive web app to calculate molar mass, convert between moles and 
 
 ---
 
+## 📦 Technologies Used
+
+- **HTML/CSS/JavaScript**
+- [PubChem PUG REST API](https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest)
+- LocalStorage for persistent history and theme
+- Responsive layout with Flexbox
+- ChatGPT
+
+---
+
 ## 🚀 Getting Started
 
 Visit the app here:  
